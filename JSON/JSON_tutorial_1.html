@@ -1,0 +1,29 @@
+<!-- Tutorial URL: https://www.youtube.com/watch?v=wbB3lVyUvAM -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+var obj1 = { user: "John", age: 22, country: "United States" };
+var obj2 = { user: "Will", age: 27, country: "United Kingdom" };
+var obj3 = { user: "Abiel", age: 19, country: "Mexico" };
+var obj4 = { u1: obj1, u2: obj2, u3: obj3 };
+document.write(obj3.user + " is " + obj3.age + " years old and lives in " + obj3.country);
+obj3.country = "Italy";
+document.write("<hr />");
+document.write(obj3.user + " is " + obj3.age + " years old and lives in " + obj3.country);
+document.write("<hr />");
+document.write(obj4.u2.user + " is from the " + obj4.u2.country);
+document.write("<hr />");
+document.write(obj4["u1"]["user"]);
+document.write("<hr />");
+var meats = [ "beef", "pork", "chicken" ];
+var fruits = [ "apple", "orange", "grape", "peach" ];
+var obj5 = { arr1: meats, arr2: fruits };
+document.write(obj5.arr1[0] + " with " + obj5.arr2[0] + " for dinner");
+document.write("<hr />");
+</script>
+</head>
+<body>
+</body>
+</html>
