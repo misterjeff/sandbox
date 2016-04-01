@@ -1,0 +1,104 @@
+body{
+	background-color: #F0F0F0;
+}
+
+
+p{
+	font-size: 18px;
+}
+
+
+p::first-letter{
+	background-color: #666;
+	color: #FFF;
+	font-size: 24px;
+	font-style:normal;
+	display: inline-block;
+	padding: 0 5px;
+	border-radius: 3px;
+	margin-right: 2px;
+	font-family: serif;
+}
+
+
+h3{
+	font-family: Satisfy, cursive;
+	font-weight:normal;
+	font-size:24px;
+	padding-top: 60px;
+}
+
+
+ul#navigation {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    top: 10px;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+
+
+ul#navigation li {
+    width: 100px;
+}
+
+
+ul#navigation li a {
+    display: block;
+    margin-left: -85px;
+    width: 100px;
+    height: 70px;
+    background-color:#CFCFCF;
+    background-repeat:no-repeat;
+    background-position:center center;
+    border:1px solid #AFAFAF;
+}
+
+
+ul#navigation li a {
+    display: block;
+    margin-left: -85px;
+    width: 100px;
+    height: 70px;
+    background-color:#CFCFCF;
+    background-repeat:no-repeat;
+    background-position:center center;
+    border:1px solid #AFAFAF;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+}
+
+
+ul#navigation li a {
+    display: block;
+    margin-left: -85px;
+    width: 100px;
+    height: 70px;
+    background-color:#CFCFCF;
+    background-repeat:no-repeat;
+    background-position:center center;
+    border:1px solid #AFAFAF;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    opacity: 0.6;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+
+
+ul#navigation .home a{
+    background-image: url(../images/home.png);
+}
+ul#navigation .about a      {
+    background-image: url(../images/id_card.png);
+}
+ul#navigation .contact a    {
+    background-image: url(../images/mail.png);
+}

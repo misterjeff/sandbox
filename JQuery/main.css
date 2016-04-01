@@ -1,0 +1,29 @@
+.huge {
+	font-size:		48pt;
+	font-weight:	bold;
+}
+
+body {
+	color:			#5F5F5F;
+	text-align:		center;
+	font-family:	Ubuntu;
+	font-size:		16pt;
+}
+
+li input {
+	display: none;
+}
+
+li.edit span {
+	display: none;
+	margin: 0px 0px 10px 0px;
+}
+
+li.edit input {
+	display: initial;
+}
+
+ul {
+	padding: 0 20%;
+	text-align: left;
+}

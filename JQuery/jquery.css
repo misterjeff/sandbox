@@ -1,0 +1,41 @@
+.buttonGroup {
+	margin: auto;
+	width: 380px;
+}
+
+.jumbotron {
+	text-align: center;
+}
+
+.huge {
+	font-size:		48pt;
+	font-weight:	bold;
+}
+
+.panelGroup {
+	padding: 20px 40px 20px 40px;
+}
+
+body {
+	color:			#5F5F5F;
+	font-family:	Ubuntu;
+	font-size:		16pt;
+}
+
+li input {
+	display: none;
+}
+
+li.edit span {
+	display: none;
+	margin: 0px 0px 10px 0px;
+}
+
+li.edit input {
+	display: initial;
+}
+
+ul {
+	padding: 0 20%;
+	text-align: left;
+}
