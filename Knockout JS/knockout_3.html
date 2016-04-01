@@ -1,0 +1,64 @@
+<!-- Tutorial URL: https://www.youtube.com/watch?v=d-Bm2KjVo7E&list=PLzpzty4VRTPfbao0m8oADCmBD5BmWM4rT&index=10 -->
+<!-- Playlsit Videos: #10 -  -->
+
+<!-- Here, friends().length gives a count of the number of Friend objects in the friends collection. -->
+<p>Friends(<span data-bind="text: friends().length"></span>)</p>
+
+<!-- For each Friend in the 'friends' observable array, do what is contained within the <ul> tags. -->
+<ul data-bind="foreach: friends">
+    <li>
+        <span data-bind="text: name"></span>
+        <!-- For checkboxes, we data-bind with checked. -->
+        <input type="checkbox" data-bind="checked: knowJS" />
+        <!-- Using the visible: attribute, this text box will only be visible if the friend knows JavaScript. -->
+        <input data-bind="value: favLib, visible: knowJS" placeholder="Favorite JS library..." />
+        <!-- When we want to tie user controls to a click event, we use data-bind="click: myEvent". -->
+        <button data-bind="click: removeFriend">Remove</button>
+    </li>
+</ul>
+
+<!-- Using enable: friends().length < 5 allows us to disable the ability to add more than 5 friends. -->
+<button data-bind="click: addFriend, enable: friends().length < 5">Add Friend</button>
+
+<script src="knockout-3.4.0.js"></script>
+<!-- Include knockout.mapping to be able to map objects retrieved, for instance, from a database. -->
+<script src="knockout.mapping-2.4.1.js"></script>
+<script>
+
+    // Assume we get the following from a DB...
+    function Frnd() {
+        return {
+            name: "Guy",
+            knowJS: true,
+            favLib: "Knockout",
+            isWeird: false
+        }
+    }
+
+    // Redefine the Friend function to map a Frnd that we get from a DB to our obj view model
+    function Friend(frnd) {
+        var map = ko.mapping.fromJS(frnd);
+        // Need to add this method to map since it is not defined within obj
+        map.removeFriend = function () {
+            obj.friends.remove(map);
+        }
+        return map;
+    }
+
+	// Create a JavaScript object
+	var obj = {
+		firstName: ko.observable("John"),
+		lastName: ko.observable("Smith"),
+	    // Create a collection of Friend objects
+        friends: ko.observableArray([new Friend(Frnd())])
+	};
+
+    // Create new function
+	obj.addFriend = function () {
+	    obj.friends.push(new Friend(new Frnd()));
+	}
+
+	// Bind the value
+	ko.applyBindings(obj);
+
+</script>

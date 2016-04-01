@@ -1,0 +1,37 @@
+<!-- Tutorial URL: https://www.youtube.com/watch?v=-i_if99cEZU&index=1&list=PLzpzty4VRTPfbao0m8oADCmBD5BmWM4rT -->
+<!-- Playlist Videos: #1 & #2 -->
+
+<!-- For inputs we data-bind with value. valueUpdate: 'keyup' gives us "real time" updating of firstName. -->
+<p>First Name: <input data-bind="value: firstName, valueUpdate:  'keyup'" /></p>
+<!-- For displaying information, we data-bind with text. -->
+<p>First Name: <span data-bind="text: firstName"></span></p><br />
+
+<p>Last Name: <input data-bind="value: lastName" /></p>
+<p>Last Name: <span data-bind="text: lastName"></span></p><br />
+
+<p>Full Name: <input data-bind="value: fullName" /></p>
+<p>Full Name: <span data-bind="text: fullName"></span></p>
+
+<script src="knockout-3.4.0.js"></script>
+<script>
+
+	// Create a JavaScript object
+	var obj = {
+		firstName:ko.observable("John"),
+		lastName:ko.observable("Smith")
+	};
+	
+    // Create a computed property
+	obj.fullName = ko.computed(function() {
+		return obj.firstName() + " " + obj.lastName();
+	})
+
+    // If anything changes firstName, this function will be fired
+	obj.firstName.subscribe(function (val) {
+	    console.log("Someone has changed firstName to " + val);
+	});
+	
+	// Bind the value
+	ko.applyBindings(obj);
+	
+</script>

@@ -1,0 +1,53 @@
+<!-- Tutorial URL: https://www.youtube.com/watch?v=xDL-WP11JCg&index=3&list=PLzpzty4VRTPfbao0m8oADCmBD5BmWM4rT -->
+<!-- Playlsit Videos: #3 - #9 -->
+
+<!-- Here, friends().length gives a count of the number of Friend objects in the friends collection. -->
+<p>Friends(<span data-bind="text: friends().length"></span>)</p>
+
+<!-- For each Friend in the 'friends' observable array, do what is contained within the <ul> tags. -->
+<ul data-bind="foreach: friends">
+    <li>
+        <span data-bind="text: name"></span>
+        <!-- For checkboxes, we data-bind with checked. -->
+        <input type="checkbox" data-bind="checked: knowJS" />
+        <!-- Using the visible: attribute, this text box will only be visible if the friend knows JavaScript. -->
+        <input data-bind="value: favLib, visible: knowJS" placeholder="Favorite JS library..."/>
+        <!-- When we want to tie user controls to a click event, we use data-bind="click: myEvent". -->
+        <button data-bind="click: removeFriend">Remove</button>
+    </li>
+</ul>
+
+<!-- Using enable: friends().length < 5 allows us to disable the ability to add more than 5 friends. -->
+<button data-bind="click: addFriend, enable: friends().length < 5">Add Friend</button>
+
+<script src="knockout-3.4.0.js"></script>
+<script>
+
+    // Create a Friend class
+    function Friend(name) {
+        this.name = name;
+        this.knowJS = ko.observable(false);
+        this.favLib = ko.observable("");
+        // Create new method to remove a friend
+        this.removeFriend = function () {
+            obj.friends.remove(this);
+        }
+    }
+
+	// Create a JavaScript object
+	var obj = {
+		firstName: ko.observable("John"),
+		lastName: ko.observable("Smith"),
+	    // Create a collection of Friend objects
+        friends: ko.observableArray([new Friend("Tony"), new Friend("Hank"), new Friend("Bobby")])
+	};
+
+    // Create new function
+	obj.addFriend = function () {
+	    obj.friends.push(new Friend('New Friend'));
+	}
+	
+	// Bind the value
+	ko.applyBindings(obj);
+	
+</script>
